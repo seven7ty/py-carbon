@@ -5,9 +5,6 @@ from carbon import __version__
 with open('README.md') as readme:
     long_description = readme.read()
 
-with open('requirements.txt') as requirements:
-    dependencies = [_.strip() for _ in requirements]
-
 
 setuptools.setup(
     name='py-carbon',
@@ -15,14 +12,15 @@ setuptools.setup(
     description='Fully asynchronous Python library for carbon.now.sh',
     long_description=long_description,
     long_description_content_type='text/markdown',
+    include_package_data=True,
     license='MIT',
     author='statch',
-    author_email='poki@pokurt.me',
+    author_email='wulf.developer@gmail.com',
     url='https://github.com/itsmewulf/py-carbon',
-    packages=setuptools.find_packages(exclude='example.py'),
+    packages=setuptools.find_packages(),
     classifiers=[
-        'Programming Language :: Python :: 3.9',
+        'Programming Language :: Python :: 3',
+        'License :: OSI Approved :: MIT License'
     ],
-    install_requires=dependencies,
     python_requires='>=3.9',
 )

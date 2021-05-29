@@ -30,6 +30,13 @@ from .utils import *
 from .carbon import CarbonError
 
 
+__all__: tuple = (
+    'FontFamily',
+    'Theme',
+    'CarbonOptions'
+)
+
+
 @enum.unique
 class FontFamily(enum.Enum):
     DANK_MONO: str = 'Dank Mono'
@@ -203,7 +210,7 @@ class CarbonOptions:
                 self.background_color = (*self.background_color, 1)
             else:
                 raise CarbonError(
-                    f'background_color expects an RGBA tuple with a length of 3 or 4, not {len(self.background_color)}')
+                    f'background_color expects an RGB(A) tuple with a length of 3 or 4, not {len(self.background_color)}')
 
     def request_format(self) -> dict:
         return {
