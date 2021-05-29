@@ -6,6 +6,32 @@ Fully asynchronous Python library for [carbon.now.sh](https://carbon.now.sh) ✨
 pip install py-carbon
 ```
 
+## A quick example
+In this example we'll create a carbon image and save it to disk.
+```py
+import carbon
+import asyncio
+
+loop = asyncio.get_event_loop()  # Setting up asyncio
+
+code = """
+defmodule Something do
+    def anything() do
+        IO.puts "Hello, World"
+    end
+end
+"""  # Any kind of code-block in any language
+
+options = carbon.CarbonOptions(code)
+
+cb = carbon.Carbon()
+image = loop.run_until_complete(cb.generate(options))  # Returns a CarbonImage object
+loop.run_until_complete(image.save('something-script'))
+```
+
+And it'll output something like this:
+![Carbon Image](/examples/something-script.png?raw=true "Carbon Image")
+
 ### Contributing
 This package is opensource so anyone with adequate python experience can contribute to this project!
 
