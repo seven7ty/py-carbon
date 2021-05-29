@@ -27,12 +27,13 @@ SOFTWARE.
 import enum
 from typing import Union
 from .utils import *
-from .carbon import CarbonError
+from .errors import CarbonError
 
 
 __all__: tuple = (
     'FontFamily',
     'Theme',
+    'Language',
     'CarbonOptions'
 )
 
@@ -174,9 +175,9 @@ class CarbonOptions:
                  shadow_offset_y_px: int = 20,
                  export_size: int = 2,
                  font_size_px: int = 14,
-                 font_family: FontFamily = FontFamily.HACK,
+                 font_family: str = FontFamily.HACK,
                  first_line_number: int = 1,
-                 language: Language = Language.AUTO,
+                 language: str = Language.AUTO,
                  line_height_percent: Union[int, float] = 1.33,
                  show_line_numbers: bool = False,
                  show_window_controls: bool = True,
@@ -184,7 +185,7 @@ class CarbonOptions:
                  horizontal_padding_px: int = 56,
                  vertical_padding_px: int = 56,
                  adjust_width: bool = True,
-                 theme: Theme = Theme.SETI,
+                 theme: str = Theme.SETI,
                  window_theme: str = 'none'):
         self.code: str = code
         self.background_color: tuple = background_color
@@ -193,9 +194,9 @@ class CarbonOptions:
         self.shadow_offset_y_px: int = shadow_offset_y_px
         self.export_size: int = export_size
         self.font_size_px: int = font_size_px
-        self.font_family: FontFamily = font_family
+        self.font_family: str = font_family
         self.first_line_number: int = first_line_number
-        self.language: Language = language
+        self.language: str = language
         self.line_height_percent: Union[int, float] = line_height_percent
         self.show_line_numbers: bool = show_line_numbers
         self.show_window_controls: bool = show_window_controls
@@ -203,7 +204,7 @@ class CarbonOptions:
         self.horizontal_padding_px: int = horizontal_padding_px
         self.vertical_padding_px: int = vertical_padding_px
         self.adjust_width: bool = adjust_width
-        self.theme: Theme = theme
+        self.theme: str = theme
         self.window_theme: str = window_theme
         if len(self.background_color) != 4:
             if len(self.background_color) == 3:
@@ -223,13 +224,13 @@ class CarbonOptions:
             'fontSize': px(self.font_size_px),
             'fontFamily': str(self.font_family),
             'firstLineNumber': self.first_line_number,
-            'language': self.language,
+            'language': str(self.language),
             'lineHeight': percent(self.line_height_percent),
             'lineNumbers': self.show_line_numbers,
             'paddingHorizontal': px(self.horizontal_padding_px),
             'paddingVertical': px(self.vertical_padding_px),
-            'theme': self.theme,
-            'windowTheme': self.window_theme,
+            'theme': str(self.theme),
+            'windowTheme': str(self.window_theme),
             'watermark': self.show_watermark,
             'widthAdjustment': self.adjust_width,
             'windowControls': self.show_window_controls

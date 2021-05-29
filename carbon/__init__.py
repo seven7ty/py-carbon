@@ -11,6 +11,7 @@ Fully asynchronous Python library for carbon.now.sh.
 from collections import namedtuple
 from . import utils
 from .carbon import *
+from .errors import CarbonError
 from .opts import *
 
 __version__ = '1.0.0'

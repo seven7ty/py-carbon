@@ -28,19 +28,15 @@ import io
 import os.path
 import aiohttp
 import aiofiles
+from .errors import CarbonError
 from .utils import sanitize_filename
 from .opts import CarbonOptions
 from typing import Optional, AnyStr
 
 __all__: tuple = (
-    'CarbonError',
     'Carbon',
     'CarbonImage'
 )
-
-
-class CarbonError(Exception):
-    pass
 
 
 class CarbonImage:
@@ -68,7 +64,7 @@ class Carbon:
     def __init__(self, session: Optional[aiohttp.ClientSession] = None):
         self._ses: aiohttp.ClientSession = session or aiohttp.ClientSession()
 
-    async def gen_carbon_snippet(self, options: CarbonOptions) -> CarbonImage:
+    async def generate(self, options: CarbonOptions) -> CarbonImage:
         res: aiohttp.ClientResponse = await self._ses.post(self.__url__, json=options.request_format())
         payload: bytes = await res.read()
         if res.status == 200:
