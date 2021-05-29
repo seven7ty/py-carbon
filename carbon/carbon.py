@@ -39,6 +39,10 @@ __all__: tuple = (
 )
 
 
+class CarbonError(Exception):
+    pass
+
+
 class CarbonImage:
     def __init__(self, _bytes: bytes):
         self.bytes: bytes = _bytes
@@ -56,10 +60,6 @@ class CarbonImage:
 
     def __bytes__(self) -> bytes:
         return self.bytes
-
-
-class CarbonError(Exception):
-    pass
 
 
 class Carbon:
