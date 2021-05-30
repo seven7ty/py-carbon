@@ -1,14 +1,20 @@
 #!/usr/bin/env python
 import setuptools
-from carbon import __version__
+import re
 
 with open('README.md') as readme:
     long_description = readme.read()
 
+with open('carbon/__init__.py') as f:
+    version = re.search(r'^__version__\s*=\s*[\'"]([^\'"]*)[\'"]', f.read(), re.MULTILINE).group(1)
+
+if not version:
+    raise RuntimeError('version is not set')
+
 
 setuptools.setup(
     name='py-carbon',
-    version=__version__,
+    version=version,
     description='Fully asynchronous Python library for carbon.now.sh',
     long_description=long_description,
     long_description_content_type='text/markdown',
