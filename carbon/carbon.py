@@ -65,7 +65,9 @@ class Carbon:
         self._ses: aiohttp.ClientSession = session or aiohttp.ClientSession()
 
     async def generate(self, options: CarbonOptions) -> CarbonImage:
-        res: aiohttp.ClientResponse = await self._ses.post(self.__url__, json=options.request_format())
+        res: aiohttp.ClientResponse = await self._ses.post(self.__url__,
+                                                           json=options.request_format(),
+                                                           headers={'Content-Type': 'application/json'})
         payload: bytes = await res.read()
         if res.status == 200:
             return CarbonImage(payload)

@@ -24,146 +24,12 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
 
-import enum
 from typing import Union
 from .utils import *
 from .errors import CarbonError
 
 
-__all__: tuple = (
-    'FontFamily',
-    'Theme',
-    'Language',
-    'CarbonOptions'
-)
-
-
-@enum.unique
-class FontFamily(enum.Enum):
-    DANK_MONO: str = 'Dank Mono'
-    ANONYMOUS_PRO: str = 'Anonymous Pro'
-    DROID_SANS_MONO: str = 'Droid Sans Mono'
-    FANTASQUE_SANS_MONO: str = 'Fantasque Sans Mono'
-    FIRA_CODE: str = 'Fira Code',
-    HACK: str = 'Hack'
-    IBM_PLEX_MONO: str = 'IBM Plex Mono'
-    INCONSOLATA: str = 'Inconsolata'
-    IOSEVKA: str = 'Iosevka'
-    JETBRAINS_MONO: str = 'Jetbrains Mono'
-    MONOID: str = 'Monoid'
-    SOURCE_CODE_PRO: str = 'Source Code Pro'
-    SPACE_MONO: str = 'Space Mono'
-    UBUNTU_MONO: str = 'Ubuntu Mono'
-
-
-@enum.unique
-class Theme(enum.Enum):
-    NIGHT_3024: str = '3024 Night'
-    A11Y_DARK: str = 'A11y Dark'
-    BLACKBOARD: str = 'Blackboard'
-    BASE16_DARK: str = 'Base 16 (Dark)'
-    BASE16_LIGHT: str = 'Base 16 (Light)'
-    COBALT: str = 'Cobalt'
-    DUOTONE: str = 'Duotone'
-    HOPSCOTCH: str = 'Hopscotch'
-    LUCARIO: str = 'Lucario'
-    MATERIAL: str = 'Material'
-    MONOKAI: str = 'Monokai'
-    NIGHT_OWL: str = 'Night Owl'
-    NORD: str = 'Nord'
-    OCEANIC_NEXT: str = 'Oceanic Next'
-    ONE_LIGHT: str = 'One Light'
-    ONE_DARK: str = 'One Dark'
-    PANDA: str = 'Panda'
-    PARAISO: str = 'Paraiso'
-    SETI: str = 'Seti'
-    SHADES_OF_PURPLE: str = 'Shades of Purple'
-    SOLARIZED_DARK: str = 'Solarized (Dark)'
-    SOLARIZED_LIGHT: str = 'Solarized (Light)'
-    SYNTHWAVE84: str = 'SynthWave\'84'
-    TWILIGHT: str = 'Twilight'
-    VERMINAL: str = 'Verminal'
-    VSCODE: str = 'VSCode'
-    YETI: str = 'Yeti'
-    ZENBURN: str = 'Zenburn'
-
-
-@enum.unique
-class Language(enum.Enum):
-    AUTO: str = 'auto'
-    APACHE: str = 'Apache'
-    BASH: str = 'Bash'
-    PLAINTEXT: str = 'Plain Text'
-    C: str = 'C'
-    CPP: str = 'C++'
-    CSHARP: str = 'C#'
-    CLOJURE: str = 'Clojure'
-    COBOL: str = 'COBOL'
-    COFFEESCRIPT: str = 'CoffeeScript'
-    CRYSTAL: str = 'Crystal'
-    CSS: str = 'CSS'
-    D: str = 'D'
-    DART: str = 'Dart'
-    DIFF: str = 'Diff'
-    DJANGO: str = 'Django'
-    DOCKER: str = 'Docker'
-    ELIXIR: str = 'Elixir'
-    ELM: str = 'Elm'
-    ERLANG: str = 'Erlang'
-    FORTRAN: str = 'Fortran'
-    GHERKIN: str = 'Gherkin'
-    GRAPHQL: str = 'GraphQL'
-    GO: str = 'Go'
-    GROOVY: str = 'Groovy'
-    HANDLEBARS: str = 'Handlebars'
-    HASKELL: str = 'Haskell'
-    HTML_XML: str = 'HTML/XML'
-    JAVA: str = 'Java'
-    JAVASCRIPT: str = 'JavaScript'
-    JSON: str = 'JSON'
-    JSX: str = 'JSX'
-    JULIA: str = 'Julia'
-    KOTLIN: str = 'Kotlin'
-    LATEX: str = 'LaTeX'
-    LISP: str = 'Lisp'
-    LUA: str = 'Lua'
-    MARKDOWN: str = 'Markdown'
-    MATHEMATICA: str = 'Mathematica'
-    MATLAB_OCTAVE: str = 'MATLAB/Octave'
-    MYSQL: str = 'MySQL'
-    N_TRIPLES: str = 'N-Triples'
-    NIM: str = 'Nim'
-    OBJECTIVE_C: str = 'Objective C'
-    OCAML_FSHARP: str = 'OCaml/F#'
-    PASCAL: str = 'Pascal'
-    PERL: str = 'Perl'
-    PHP: str = 'PHP'
-    POWERSHELL: str = 'PowerShell'
-    PYTHON: str = 'Python'
-    R: str = 'R'
-    RISC_V: str = 'RISC-V'
-    RUBY: str = 'Ruby'
-    RUST: str = 'Rust'
-    SASS: str = 'Sass'
-    SCALA: str = 'Scala'
-    SMALLTALK: str = 'Smalltalk'
-    SOLIDITY: str = 'Solidity'
-    SPARQL: str = 'SPARQL'
-    SQL: str = 'SQL'
-    STYLUS: str = 'Stylus'
-    SWIFT: str = 'Swift'
-    TCL: str = 'TCL'
-    TOML: str = 'TOML'
-    TURTLE: str = 'Turtle'
-    TYPESCRIPT: str = 'TypeScript'
-    TSX: str = 'TSX'
-    TWIG: str = 'Twig'
-    VB_NET: str = 'VB.NET'
-    VERILOG: str = 'Verilog'
-    VHDL: str = 'VHDL'
-    VUE: str = 'Vue'
-    XQUERY: str = 'XQuery'
-    YAML: str = 'YAML'
+__all__: tuple = ('CarbonOptions',)
 
 
 class CarbonOptions:
@@ -175,9 +41,9 @@ class CarbonOptions:
                  shadow_offset_y_px: int = 20,
                  export_size: int = 2,
                  font_size_px: int = 14,
-                 font_family: str = FontFamily.HACK,
+                 font_family: str = 'hack',
                  first_line_number: int = 1,
-                 language: str = Language.AUTO,
+                 language: str = 'auto',
                  line_height_percent: Union[int, float] = 1.33,
                  show_line_numbers: bool = False,
                  show_window_controls: bool = True,
@@ -185,7 +51,7 @@ class CarbonOptions:
                  horizontal_padding_px: int = 56,
                  vertical_padding_px: int = 56,
                  adjust_width: bool = True,
-                 theme: str = Theme.SETI,
+                 theme: str = 'seti',
                  window_theme: str = 'none'):
         self.code: str = code
         self.background_color: tuple = background_color
