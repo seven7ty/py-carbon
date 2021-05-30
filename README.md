@@ -29,8 +29,9 @@ image = loop.run_until_complete(cb.generate(options))  # Returns a CarbonImage o
 loop.run_until_complete(image.save('something-script'))
 ```
 
-And it'll output something like this:
-![Carbon Image](/examples/something-script.png?raw=true "Carbon Image")
+And it'll output something like this:  
+  
+<img src="/examples/something-script.png?raw=true" alt="Carbon Image" width="400"/>
 
 ### Contributing
 This package is opensource so anyone with adequate python experience can contribute to this project!
