@@ -31,7 +31,7 @@ loop.run_until_complete(image.save('something-script'))
 
 And it'll output something like this:  
   
-<img src="/examples/something-script.png?raw=true" alt="Carbon Image" width="400"/>
+<img src="https://github.com/itsmewulf/py-carbon/blob/main/examples/something-script.png?raw=true" alt="Carbon Image" width="400"/>
 
 ### Contributing
 This package is opensource so anyone with adequate python experience can contribute to this project!
