@@ -14,7 +14,7 @@ from .carbon import *
 from .errors import CarbonError
 from .opts import *
 
-__version__ = '1.0.0'
+__version__ = '1.0.2'
 __title__ = 'py-carbon'
 __license__ = 'MIT'
 __author__ = 'wulf'
