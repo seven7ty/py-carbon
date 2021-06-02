@@ -3,7 +3,7 @@ Fully asynchronous Python library for [carbon.now.sh](https://carbon.now.sh) ✨
 
 ## Installation
 ```
-pip install py-carbon
+$ pip install py-carbon
 ```
 
 ## A quick example
