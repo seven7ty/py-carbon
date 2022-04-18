@@ -6,7 +6,7 @@ with open('README.md') as readme:
     long_description = readme.read()
 
 with open('carbon/__init__.py') as f:
-    version = re.search(r'^__version__\s*=\s*[\'"]([^\'"]*)[\'"]', f.read(), re.MULTILINE).group(1)
+    version = '.'.join(re.search(r'^version_info\s*=\s*VersionInfo\(major=(\d),\s*minor=(\d),\s*micro=(\d)(?:,\s*releaselevel\s*=\s*\'\w+\',\s*serial\s*=\s*\d)*\)', f.read(), re.MULTILINE).groups())
 
 if not version:
     raise RuntimeError('version is not set')
@@ -21,7 +21,7 @@ setuptools.setup(
     include_package_data=True,
     license='MIT',
     author='statch',
-    author_email='wulf.developer@gmail.com',
+    author_email='paul@przybyszewski.me',
     url='https://github.com/itsmewulf/py-carbon',
     packages=setuptools.find_packages(),
     classifiers=[
