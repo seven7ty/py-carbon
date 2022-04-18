@@ -1,5 +1,5 @@
 # py-carbon [![Badge](https://img.shields.io/pypi/v/py-carbon?color=3776AB&logo=python&style=for-the-badge)](https://pypi.org/project/py-carbon/)  [![Badge 2](https://img.shields.io/pypi/dm/py-carbon?color=3776AB&logo=python&style=for-the-badge)](https://pypi.org/project/py-carbon/)
-Fully asynchronous Python library for [carbon.now.sh](https://carbon.now.sh) ✨🚀
+Fully asynchronous Python library for [carbon.now.sh](https://carbon.now.sh)
 
 ## Installation
 ```
@@ -45,5 +45,5 @@ If you want to contribute to this package, fork the repository, make your change
 
 ### Contact
 If you want to contact me:  
-**Mail -** ```wulf.developer@gmail.com```  
-**Discord -** ```wulf#9632```
+**Mail -** ```paul@przybyszewski.me```  
+**Discord -** [wulf](https://dsc.bio/wulf)
