@@ -59,7 +59,7 @@ class CarbonImage:
 
 
 class Carbon:
-    __url__: str = 'https://carbonara.vercel.app/api/cook'
+    __url__: str = 'https://carbonara-42.herokuapp.com/api/cook'
 
     def __init__(self, session: Optional[aiohttp.ClientSession] = None):
         self._ses: aiohttp.ClientSession = session or aiohttp.ClientSession()
