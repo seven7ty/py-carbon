@@ -58,3 +58,4 @@ def sanitize_filename(filename: str) -> str:
         if '.' in filename:
             return filename[:filename.rindex('.', 1)] + '.png'
         return filename + '.png'
+    return filename

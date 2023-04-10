@@ -1,8 +1,6 @@
 import carbon
 import asyncio
 
-loop = asyncio.get_event_loop()  # Setting up asyncio
-
 code = """
 defmodule Something do
     def anything() do
@@ -11,8 +9,12 @@ defmodule Something do
 end
 """  # Any kind of code-block in any language
 
-options = carbon.CarbonOptions(code)
 
-cb = carbon.Carbon()
-image = loop.run_until_complete(cb.generate(options))  # Returns a CarbonImage object
-loop.run_until_complete(image.save('something-script'))
+async def main():
+    cb = carbon.Carbon()  # Create a Carbon instance
+    opts = carbon.CarbonOptions(code=code)  # Set the options for the image
+    image = await cb.generate(opts)  # Generate the image
+    await image.save('hello')  # Save the image in png format
+
+
+asyncio.run(main())

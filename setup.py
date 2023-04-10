@@ -20,8 +20,8 @@ setuptools.setup(
     long_description_content_type='text/markdown',
     include_package_data=True,
     license='MIT',
-    author='statch',
-    author_email='paul@przybyszewski.me',
+    author='wulf',
+    author_email='paul@przybyszew.ski',
     url='https://github.com/itsmewulf/py-carbon',
     packages=setuptools.find_packages(),
     classifiers=[

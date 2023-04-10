@@ -12,8 +12,6 @@ In this example we'll create a carbon image and save it to disk.
 import carbon
 import asyncio
 
-loop = asyncio.get_event_loop()  # Setting up asyncio
-
 code = """
 defmodule Something do
     def anything() do
@@ -22,11 +20,15 @@ defmodule Something do
 end
 """  # Any kind of code-block in any language
 
-options = carbon.CarbonOptions(code)
 
-cb = carbon.Carbon()
-image = loop.run_until_complete(cb.generate(options))  # Returns a CarbonImage object
-loop.run_until_complete(image.save('something-script'))
+async def main():
+    cb = carbon.Carbon()  # Create a Carbon instance
+    opts = carbon.CarbonOptions(code=code)  # Set the options for the image
+    image = await cb.generate(opts)  # Generate the image
+    await image.save('hello')  # Save the image in png format
+
+
+asyncio.run(main())
 ```
 
 And it'll output something like this:  
@@ -45,5 +47,5 @@ If you want to contribute to this package, fork the repository, make your change
 
 ### Contact
 If you want to contact me:  
-**Mail -** ```paul@przybyszewski.me```  
+**Mail -** ```paul@przybyszew.ski```  
 **Discord -** [wulf](https://dsc.bio/wulf)

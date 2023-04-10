@@ -48,7 +48,7 @@ class CarbonImage:
             await fp.write(self.bytes)
         return os.path.realpath(filename)
 
-    async def memorize(self, filename: Optional[str] = None) -> io.BytesIO:
+    async def memoize(self, filename: Optional[str] = None) -> io.BytesIO:
         io_obj: io.BytesIO = io.BytesIO(self.bytes)
         if filename:
             setattr(io_obj, 'name', sanitize_filename(filename))
@@ -59,7 +59,7 @@ class CarbonImage:
 
 
 class Carbon:
-    __url__: str = 'https://carbonara-42.herokuapp.com/api/cook'
+    __url__: str = 'https://carbonara.solopov.dev/api/cook'
 
     def __init__(self, session: Optional[aiohttp.ClientSession] = None):
         self._ses: aiohttp.ClientSession = session or aiohttp.ClientSession()
