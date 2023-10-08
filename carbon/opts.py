@@ -25,9 +25,9 @@ SOFTWARE.
 """
 
 from typing import Union
-from .utils import *
-from .errors import CarbonError
 
+from .errors import CarbonError
+from .utils import *
 
 __all__: tuple = ('CarbonOptions',)
 
@@ -52,13 +52,17 @@ class CarbonOptions:
                  vertical_padding_px: int = 56,
                  adjust_width: bool = True,
                  theme: str = 'seti',
-                 window_theme: str = 'none'):
+                 window_theme: str = 'none',
+                 prettify: bool = False,
+                 width: int = 536,
+                 font_custom: str = ''):
         self.code: str = code
         self.background_color: tuple = background_color
         self.drop_shadow: bool = drop_shadow
         self.shadow_blur_radius_px: int = shadow_blur_radius_px
         self.shadow_offset_y_px: int = shadow_offset_y_px
         self.export_size: int = export_size
+        self.font_custom: str = font_custom
         self.font_size_px: int = font_size_px
         self.font_family: str = font_family
         self.first_line_number: int = first_line_number
@@ -69,6 +73,8 @@ class CarbonOptions:
         self.show_watermark: bool = show_watermark
         self.horizontal_padding_px: int = horizontal_padding_px
         self.vertical_padding_px: int = vertical_padding_px
+        self.prettify: bool = prettify
+        self.width: int = width
         self.adjust_width: bool = adjust_width
         self.theme: str = theme
         self.window_theme: str = window_theme
@@ -88,6 +94,7 @@ class CarbonOptions:
             'dropShadowOffsetY': px(self.shadow_offset_y_px),
             'exportSize': size(self.export_size),
             'fontSize': px(self.font_size_px),
+            'fontCustom': str(self.font_custom),
             'fontFamily': str(self.font_family),
             'firstLineNumber': self.first_line_number,
             'language': str(self.language),
@@ -95,9 +102,11 @@ class CarbonOptions:
             'lineNumbers': self.show_line_numbers,
             'paddingHorizontal': px(self.horizontal_padding_px),
             'paddingVertical': px(self.vertical_padding_px),
+            'prettify': self.prettify,
             'theme': str(self.theme),
             'windowTheme': str(self.window_theme),
             'watermark': self.show_watermark,
+            'width': px(self.width),
             'widthAdjustment': self.adjust_width,
             'windowControls': self.show_window_controls
         }
